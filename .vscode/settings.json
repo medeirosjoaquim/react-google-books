@@ -1,0 +1,9 @@
+{
+    "editor.tabSize": 2,
+    "workbench.colorCustomizations": {
+        "activityBar.background": "#37006b",
+        "activityBar.foreground": "#000",
+        "activityBar.inactiveForeground": "#eee",
+        "javascript.implicitProjectConfig.experimentalDecorators": true
+    },
+}
