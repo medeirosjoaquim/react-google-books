@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const BottomBarTag = styled.div`
@@ -16,7 +17,9 @@ function BottomBar() {
   return (
     <div>
       <BottomBarTag>
-        bottom bar works
+      <Link to="/">Home </Link>
+      <Link to="/detail">Detail </Link>
+      <Link to="/search">Search </Link>
       </BottomBarTag>
     </div>
   )
