@@ -1,0 +1,17 @@
+@import 'normalize.css';
+@import "./assets/styles/breakpoints.scss";
+@import "./assets/styles/colors.scss";
+
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
+body {
+  box-sizing: border-box;
+  overflow: hidden;
+  font-family: 'San Francisco', Arial, sans-serif;
+  background-color: $appCream;
+  color: $appDark;
+}

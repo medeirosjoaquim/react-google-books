@@ -11,6 +11,9 @@ module.exports = {
   entry: "./src/index.tsx",
   target: "web",
   mode: "development",
+  devServer: {
+    open: true
+  },
   output: {
     path: path.resolve(__dirname, "build"),
     filename: '[name].js',
