@@ -15,7 +15,10 @@ body {
   background-color: $appCream;
   color: $appDark;
 }
-
+a, a:visited {
+  text-decoration: none;
+  color: $appDark;
+}
 .wrapper {
   padding: 0 20px;
   margin-top: 50px;
