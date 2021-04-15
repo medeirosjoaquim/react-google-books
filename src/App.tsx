@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom';
-import BottomBar from './components/bottom-bar/bottom-bar';
 
+import BottomBar from './components/bottom-bar';
 import Detail from './pages/detail';
 import Error from './pages/error';
 import Main from './pages/main'
