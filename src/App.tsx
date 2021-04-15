@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom';
+import BottomBar from './components/bottom-bar/bottom-bar';
 
 import Detail from './pages/detail';
 import Error from './pages/error';
@@ -17,6 +18,7 @@ export default function App() {
         <Route path="/search" component={Search} />
         <Route path="/error" component={Error} />
       </Switch>
+      <BottomBar/>
     </div>
   )
 }

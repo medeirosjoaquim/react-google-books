@@ -12,7 +12,8 @@ module.exports = {
   target: "web",
   mode: "development",
   devServer: {
-    open: true
+    open: true,
+    historyApiFallback: true,
   },
   output: {
     path: path.resolve(__dirname, "build"),
@@ -36,6 +37,17 @@ module.exports = {
       {
         test: /\.css$/,
         loader: "css-loader",
+      },
+      {
+        test: /\.svg$/,
+        use: [
+          {
+            loader: 'svg-url-loader',
+            options: {
+              limit: 10000,
+            },
+          },
+        ],
       },
       {
         test: /\.s[ac]ss$/i,
