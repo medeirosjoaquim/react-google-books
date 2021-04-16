@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
+import { colors } from '../../../assets/colors';
 import Card from '../card';
-
+import 
 const CarouselContainer = styled.div`
   font-size: 24px;
   height: 140px;
@@ -13,7 +14,12 @@ const CarouselContainer = styled.div`
 function Carousel() {
   return (
     <CarouselContainer>
-      <Card/>
+      <Card bgColor={colors.appDarkBlue}
+            imgSrc={}
+            bookTitle={}
+            author={}
+            rating={}
+      />
     </CarouselContainer>
   )
 }
