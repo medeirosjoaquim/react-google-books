@@ -45,12 +45,19 @@ module.exports = {
         loader: "css-loader",
       },
       {
+        test: /\.(jpg|png)$/,
+        use: {
+          loader: 'url-loader',
+        },
+      },
+      {
         test: /\.svg$/,
         use: [
           {
             loader: 'svg-url-loader',
             options: {
               limit: 10000,
+              esModule: true,
             },
           },
         ],
