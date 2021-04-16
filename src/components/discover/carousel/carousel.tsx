@@ -16,8 +16,8 @@ function Carousel() {
     <CarouselContainer>
       <Card bgColor={colors.appDarkBlue}
             imgSrc={mockbook1}
-            bookTitle={''}
-            author={''}
+            bookTitle={'Hooked'}
+            author={'Nir Eyal'}
             rating={''}
       />
     </CarouselContainer>
