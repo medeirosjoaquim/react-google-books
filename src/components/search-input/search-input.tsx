@@ -20,14 +20,14 @@ const StyledInput = styled.input`
   box-shadow: 5px 5px 80px rgba(212, 173, 134, 0.122623);
   border-radius: 10px;
 	&::placeholder {
-		color: ${colors.appDark50};
+		color: ${colors.appDark};
 	}
 	&:focus {
 		background-color: #fafafa;
 		border: none;
     outline: none;
     // dont remove outline for accessibility
-    box-shadow: 0 0 1px 2px ${colors.appDark};
+    box-shadow: 0 0 1px 2px ${colors.appDark50};
 	}
 `;
 const SearchInputContainer = styled.div`
