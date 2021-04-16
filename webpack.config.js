@@ -4,6 +4,7 @@ const CompressionPlugin = require('compression-webpack-plugin')
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const ErrorOverlayPlugin = require('error-overlay-webpack-plugin')
 
 const mode = process.env.NODE_ENV
 
@@ -11,9 +12,14 @@ module.exports = {
   entry: "./src/index.tsx",
   target: "web",
   mode: "development",
+  devtool: 'source-map',
   devServer: {
     open: true,
     historyApiFallback: true,
+    compress: true,
+    inline: true,
+    quiet: true,
+    overlay: true,
   },
   output: {
     path: path.resolve(__dirname, "build"),
@@ -65,6 +71,7 @@ module.exports = {
   plugins: [
     new webpack.optimize.AggressiveMergingPlugin(),
     new CompressionPlugin(),
+    new ErrorOverlayPlugin(),
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, "public", "index.html"),
       favicon: "./src/favicon.ico"
