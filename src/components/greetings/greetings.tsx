@@ -9,6 +9,7 @@ export interface IGreetings {
 }
 const GreetingsContainer = styled.div`
   margin: 30px 0;
+  margin-left: 20px;
   font-size: 24px;
 `;
 const GreetingsUserName = styled.span`

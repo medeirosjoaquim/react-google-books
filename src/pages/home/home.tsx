@@ -1,14 +1,16 @@
 import React from 'react'
+import Discover from '../../components/discover'
 import Greetings from '../../components/greetings'
 import SearchInput from '../../components/search-input/search-input'
 
-function Main() {
+function Home() {
   return (
-    <div className="main">
+    <div className="home">
       <SearchInput />
       <Greetings userName={'test'}/>
+      <Discover/>
     </div>
   )
 }
 
-export default Main
+export default Home

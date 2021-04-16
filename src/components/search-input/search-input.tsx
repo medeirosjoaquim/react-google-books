@@ -9,6 +9,7 @@ const SearchInputContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  margin-left: 20px;
 `;
 /*
 position: absolute;
@@ -25,7 +26,7 @@ border-radius: 10px;
 function SearchInput() {
   return (
     <SearchInputContainer>
-      input works
+      <input type="text"/>
     </SearchInputContainer>
   )
 }
