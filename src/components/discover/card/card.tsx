@@ -1,9 +1,8 @@
 import React from 'react'
 import triangle from '../../../assets/images/triangle.png';
 import ovalLeft from '../../../assets/images/oval-left.png';
-import circle from '../../../assets/images/circle.png';
-import redbar from '../../../assets/images/redbar.png';
-import { CardBookTitle, CardCircle, CardContainer, CardImg, CardOvalLeft, CardRedBar, CardTriangle } from './components/card-components';
+import readIcon from '../../../assets/images/readicon.png';
+import { CardBookAuthor, CardBookTitle, CardCircle, CardContainer, CardImg, CardOvalLeft, CardReadIcon, CardReadNow, CardRedBar, CardTriangle } from './components/card-components';
 
 export interface ICard {
   bgColor: string;
@@ -21,7 +20,7 @@ function Card({
   rating = ''
  }: ICard) {
   return (
-    <CardContainer>
+    <CardContainer bgColor={bgColor}>
       <CardImg 
       src={imgSrc} alt={`Cover for book titled ${bookTitle}`}/>
       <CardRedBar/>
@@ -29,6 +28,9 @@ function Card({
       <CardOvalLeft src={ovalLeft}/>
       <CardCircle/>
       <CardBookTitle>{bookTitle}</CardBookTitle>
+      <CardBookAuthor>{author}</CardBookAuthor>
+      <CardReadIcon src={readIcon}/>
+      <CardReadNow><span style={{fontWeight: 'bold'}}>120+</span>Read now</CardReadNow>
     </CardContainer>
   )
 }

@@ -7,7 +7,7 @@ function Home() {
   return (
     <div className="home">
       <SearchInput />
-      <Greetings userName={'test'}/>
+      <Greetings userName={'Mehmed Al Fatih'}/>
       <Discover/>
     </div>
   )

@@ -1,7 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
+import { colors } from '../../assets/colors';
 import Carousel from './carousel';
-
+const {appDark50, appLightBlue} = colors;
 const DiscoverContainer = styled.div`
   margin: 30px 0;
   margin-left: 20px;
@@ -11,17 +12,31 @@ const DiscoverContainer = styled.div`
   flex-direction: column;
 `;
 
-const Label = styled.span`
-font-size: 18px;
-font-weight: bold;
-color: #3F4043;
-margin-bottom: 15px;
+const LabelWrapper = styled.div`
+  font-size: 18px;
+  width: 90%;
+  display: flex;
+  font-weight: bold;
+  margin-bottom: 15px;
+  justify-content: space-between
 `
+
+const Label = styled.span<{color: string}>`
+font-size: 18px;
+display: block;
+font-weight: bold;
+color: ${prop => prop.color};
+`
+
+
 
 function Discover() {
   return (
     <DiscoverContainer>
-      <Label>Discover new book</Label>
+      <LabelWrapper>
+        <Label color={appDark50}>Discover new book</Label>
+        <Label color={appLightBlue}>More</Label>
+      </LabelWrapper>
       <Carousel/>
     </DiscoverContainer>
   )
