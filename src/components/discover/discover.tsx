@@ -3,8 +3,9 @@ import styled from 'styled-components';
 import { colors } from '../../assets/colors';
 import Carousel from './carousel';
 const {appDark50, appLightBlue} = colors;
+
 const DiscoverContainer = styled.div`
-  margin: 30px 0;
+  margin: 34px 0;
   margin-left: 20px;
   font-size: 24px;
   height: 180px;
