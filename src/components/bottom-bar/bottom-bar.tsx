@@ -10,6 +10,7 @@ const profile = require("../../assets/images/profile.svg") as string;
 const BottomBarTag = styled.div`
   position: absolute;
   bottom: 20px;
+  padding: 8px;
   left: 20px;
   right: 20px;
   height: 40px;
@@ -19,7 +20,8 @@ const BottomBarTag = styled.div`
 `;
 const Label = styled.span`
   display: block;
-  font-size: 10px;
+  margin-top: 6px;
+  font-size: 12px;
 `;
 
 const BarItem = styled.div`
@@ -33,16 +35,16 @@ function BottomBar() {
       <BottomBarTag>
       <Link to="/">
       <BarItem>
-        <img height={16} src={home} />  
+        <img height={22} src={home} />  
         <Label>Home</Label>
       </BarItem>  
       </Link>
       <BarItem>
-        <img height={16} src={libraries} />  
+        <img height={22} src={libraries} />  
         <Label>Libraries</Label>
       </BarItem>  
       <BarItem>
-        <img height={16} src={profile} />  
+        <img height={22} src={profile} />  
         <Label>Profile</Label>
       </BarItem>  
       </BottomBarTag>

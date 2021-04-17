@@ -6,6 +6,6 @@ export const colors = {
   appPurple: '#451475',
   appGray: '#dcd8d8',
   appGray50: '#bfbebf',
-  appCream: '#f2f2f2',
+  appCream: '#fefbf7ff',
   appPink: '#ff6a78'
 }
