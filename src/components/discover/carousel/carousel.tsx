@@ -23,13 +23,13 @@ function Carousel() {
             imgSrc={mockbook1}
             bookTitle={'Hooked'}
             author={'Nir Eyal'}
-            rating={''}
+            reads={'120'}
       />
             <Card bgColor={appPurple}
             imgSrc={mockbook2}
             bookTitle={'The One Thing'}
             author={'Gary Keller'}
-            rating={''}
+            reads={'90'}
       />
     </CarouselContainer>
   )

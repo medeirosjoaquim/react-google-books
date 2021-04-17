@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components';
 import { colors } from '../../assets/colors';
 const {appDark50, appLightBlue, appLightGreen} = colors;
+import mockbook from '../../assets/images/mock_book_originals.jpg';
 
 const CurrentlyReadingContainer = styled.div`
 position: relative;
@@ -38,10 +39,18 @@ const CurrentlyReadingBookCover = styled.img`
 position: absolute;
 top: 30px;
 left: 20px;
-border: 1px solid red;
 height: 130px;
 width: 88px;
 `
+export const RedBar = styled.div`
+  position: absolute;
+  left: 53.37%;
+  right: 29.72%;
+  top: 68.7%;
+  bottom: 28.42%;
+  background: #EC6374;
+  transform: rotate(14deg);
+`;
 
 function CurrentlyReading() {
   return (
@@ -51,7 +60,8 @@ function CurrentlyReading() {
         <Label color={appLightBlue}>All</Label>
       </LabelWrapper>
       <Banner/>
-      <CurrentlyReadingBookCover/>
+      <CurrentlyReadingBookCover src={mockbook}/>
+      <RedBar/>
     </CurrentlyReadingContainer>
   )
 }

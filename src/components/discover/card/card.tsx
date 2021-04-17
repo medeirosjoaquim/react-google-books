@@ -9,7 +9,7 @@ export interface ICard {
   imgSrc: string;
   bookTitle: string;
   author: string;
-  rating: string;
+  reads: string;
 }
 
 function Card({
@@ -17,7 +17,7 @@ function Card({
   imgSrc = '',
   bookTitle = '',
   author = 'test',
-  rating = ''
+  reads = ''
  }: ICard) {
   return (
     <CardContainer bgColor={bgColor}>
@@ -30,7 +30,7 @@ function Card({
       <CardBookTitle>{bookTitle}</CardBookTitle>
       <CardBookAuthor>{author}</CardBookAuthor>
       <CardReadIcon src={readIcon}/>
-      <CardReadNow><span style={{fontWeight: 'bold'}}>120+</span>Read now</CardReadNow>
+      <CardReadNow><span style={{fontWeight: 'bold'}}>{reads}+</span>Read now</CardReadNow>
     </CardContainer>
   )
 }

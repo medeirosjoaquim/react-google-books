@@ -11,6 +11,8 @@
 }
 
 body,html {
+  height: 812px;
+  width: 376px;
   box-sizing: border-box;
   overflow: hidden;
   font-family: 'San Francisco', Arial, sans-serif;
@@ -22,5 +24,6 @@ a, a:visited {
   color: $appDark;
 }
 .wrapper {
+  width: 100%;
   margin-top: 50px;
 }
