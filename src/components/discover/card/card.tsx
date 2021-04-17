@@ -2,7 +2,16 @@ import React from 'react'
 import triangle from '../../../assets/images/triangle.png';
 import ovalLeft from '../../../assets/images/oval-left.png';
 import readIcon from '../../../assets/images/readicon.png';
-import { CardBookAuthor, CardBookTitle, CardCircle, CardContainer, CardImg, CardOvalLeft, CardReadIcon, CardReadNow, CardRedBar, CardTriangle } from './components/card-components';
+import { CardBookAuthor,
+   CardBookTitle, 
+   CardCircle, 
+   CardContainer, 
+   CardImg, 
+   CardOvalLeft, 
+   CardReadIcon, 
+   CardReadNow, 
+   CardRedBar, 
+   CardTriangle } from './components/card-components';
 
 export interface ICard {
   bgColor: string;

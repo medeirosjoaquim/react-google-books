@@ -10,7 +10,7 @@ function Home() {
       <SearchInput />
       <Greetings userName={'Mehmed Al Fatih'}/>
       <Discover/>
-      <CurrentlyReading/>
+      <CurrentlyReading title={'Originals'} author={'Adam Grant'}/>
     </div>
   )
 }
