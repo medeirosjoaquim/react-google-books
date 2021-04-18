@@ -12,7 +12,7 @@ const ReviewContainer = styled.div`
   height: 180px;
   display: flex;
   flex-direction: column;
-  width: 320px;
+  width: 330px;
 `;
 
 const LabelWrapper = styled.div`

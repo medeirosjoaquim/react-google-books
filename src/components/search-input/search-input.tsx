@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { useHistory } from 'react-router';
 import magnifier from '../../assets/images/magnifier.png'
+import { SearchContext } from '../../context/search-context';
 import { SearchInputContainer, StyledInput, Icon } from './search-input-components/components';
 
 // https://www.googleapis.com/books/v1/volumes?q=${query}
@@ -19,23 +20,27 @@ export const debounce = (fn: any, milis: number) => {
 
 
 function SearchInput() {
+  const [searchValue, setSearchValue] = useState('')
+  const debounceConsole = debounce(setSearchValue, 500)
   const history = useHistory();
+  const [searchContext, setSearchContext] = useContext(SearchContext);
 
   useEffect(() => {
-    setTimeout(() => {
-     // history.push('search')
-    }, 2000);
+   if (searchValue.length === 0) {
+    history.push('/')
+   }
     return () => {
     }
-  }, [])
-  const [searchValue, setSearchValue] = useState()
-  // show search useContext
-  //const [searchValue, setSearchValue] = useState()
+  }, [searchContext, searchValue])
 
-  const debounceConsole = debounce(console.log, 1000)
+
+  
+  
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {         
+    if(e.target.value.length >= 3) {
+      history.push('search')
+    }
     debounceConsole(e.target.value)
-    
   }
   
 

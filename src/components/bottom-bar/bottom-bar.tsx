@@ -8,7 +8,9 @@ const libraries = require('../../assets/images/book.svg') as string;
 const profile = require('../../assets/images/profile.svg') as string;
 
 const BottomBarTag = styled.div`
+position: fixed;
   margin-left: 20px;
+  bottom: 0;
   margin-top: 8px;
   height: 40px;
   background-color: ${colors.appCream};
