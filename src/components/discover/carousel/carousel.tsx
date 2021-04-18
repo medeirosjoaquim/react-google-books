@@ -13,7 +13,7 @@ const CarouselContainer = styled.div`
   width: 376px;
   display: flex;
   width: 100%;
-  background-color: #aaa;
+  overflow-x: scroll;
 `;
 
 function Carousel() {

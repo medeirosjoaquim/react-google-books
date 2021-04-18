@@ -2,14 +2,13 @@ import React from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const home = require("../../assets/images/home.svg") as string;
-const libraries = require("../../assets/images/book.svg") as string;
-const profile = require("../../assets/images/profile.svg") as string;
+const home = require('../../assets/images/home.svg') as string;
+const libraries = require('../../assets/images/book.svg') as string;
+const profile = require('../../assets/images/profile.svg') as string;
 
 
 const BottomBarTag = styled.div`
   position: absolute;
-  bottom: 20px;
   padding: 8px;
   left: 20px;
   right: 20px;
@@ -33,7 +32,7 @@ function BottomBar() {
   return (
     <div>
       <BottomBarTag>
-      <Link to="/">
+      <Link to='/'>
       <BarItem>
         <img height={22} src={home} />  
         <Label>Home</Label>

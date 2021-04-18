@@ -1,5 +1,6 @@
 @import 'normalize.css';
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 @import "./assets/styles/breakpoints.scss";
 @import "./assets/styles/colors.scss";
@@ -11,10 +12,8 @@
 }
 
 body,html {
-  height: 812px;
-  width: 376px;
   box-sizing: border-box;
-  overflow-x: hidden;
+  overflow: hidden;
   font-family: 'San Francisco', Arial, sans-serif;
   background-color: $appCream;
   color: $appDark;
@@ -24,6 +23,11 @@ a, a:visited {
   color: $appDark;
 }
 .wrapper {
-  width: 100%;
   margin-top: 50px;
+}
+
+@include breakpoint(tablet) {
+  body,html {
+    width: 376px;
+  }
 }

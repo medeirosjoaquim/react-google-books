@@ -2,15 +2,18 @@ import React from 'react'
 import CurrentlyReading from '../../components/currently-reading'
 import Discover from '../../components/discover'
 import Greetings from '../../components/greetings'
-import SearchInput from '../../components/search-input/search-input'
+import Review from '../../components/reviews'
 
 function Home() {
   return (
     <div className="home">
-      <SearchInput />
       <Greetings userName={'Mehmed Al Fatih'}/>
       <Discover/>
-      <CurrentlyReading title={'Originals'} author={'Adam Grant'}/>
+      <CurrentlyReading title={'Originals'}
+       author={'Adam Grant'}
+       currentChapter={'2'}
+       totalChapers={'9'}/>
+       <Review/>
     </div>
   )
 }

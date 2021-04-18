@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components';
 import { colors } from '../../assets/colors';
-import Carousel from './carousel';
 const {appDark50, appLightBlue} = colors;
+import reviewbanner from '../../assets/images/review-banner.png'
 
-const DiscoverContainer = styled.div`
-  margin-top: 30px;
+const ReviewContainer = styled.div`
+  margin-top: 3px;
   margin-left: 20px;
   font-size: 24px;
   height: 180px;
@@ -21,6 +21,10 @@ const LabelWrapper = styled.div`
   margin-bottom: 15px;
   justify-content: space-between
 `
+const ImgBanner = styled.img`
+width: 100%;
+height: 160px;
+`
 
 const Label = styled.span<{color: string}>`
 font-size: 18px;
@@ -29,18 +33,16 @@ font-weight: bold;
 color: ${prop => prop.color};
 `
 
-
-
-function Discover() {
+function Review() {
   return (
-    <DiscoverContainer>
+    <ReviewContainer>
       <LabelWrapper>
-        <Label color={appDark50}>Discover new book</Label>
-        <Label color={appLightBlue}>More</Label>
+        <Label color={appDark50}>Reviews of the day</Label>
+        <Label color={appLightBlue}>All Videos</Label>
       </LabelWrapper>
-      <Carousel/>
-    </DiscoverContainer>
+      <ImgBanner src={reviewbanner}/>
+    </ReviewContainer>
   )
 }
 
-export default Discover
+export default Review
