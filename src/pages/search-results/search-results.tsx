@@ -1,12 +1,13 @@
 import axios from 'axios';
 import React, { useContext, useEffect } from 'react'
 import { useHistory } from 'react-router';
+import {Item} from '../../models/books.model'
 import styled from 'styled-components';
 import Loader from '../../components/discover/card/components/loader';
 import { SearchContext, SearchStatusContext } from '../../context/search-context';
 import { buildQuery } from '../../helpers/query.helper';
 import { Books } from '../../models/books.model';
-import { LoadingResults, Label, SearchContainer, LoadMoreBtn, LoadMoreWrapper } from './components/search-results-components';
+import { LoadingResults, Label, SearchContainer, LoadMoreBtn, LoadMoreWrapper, BookAuthor, BookContainer, BookCover, BookTitle, NoCover } from './components/search-results-components';
 
 
 
@@ -19,6 +20,26 @@ const loadMore = () => {
   const nextIndex = searchStatusContext.startIndex + 5;
   setSearchStatusContext({...searchStatusContext, loadMore: true,startIndex: nextIndex})
 }
+
+
+const renderBook = (book: Item) => 
+ ( <BookContainer key={book.id}>
+    {book.volumeInfo?.imageLinks?.smallThumbnail 
+    ? <BookCover src={book.volumeInfo?.imageLinks?.smallThumbnail}/>
+    : <NoCover>No cover</NoCover>
+  }
+    
+    <BookTitle>
+      {book.volumeInfo.title.length > 28 ? 
+      book.volumeInfo.title.substring(0,27) + '...'
+      : book.volumeInfo.title}
+    </BookTitle>
+    {book.volumeInfo.authors &&
+    <BookAuthor>by {''}
+    {book.volumeInfo.authors.length === 1 ? book.volumeInfo.authors[0].substring(0,24) 
+    : `${book.volumeInfo.authors[0]} and more` }
+    </BookAuthor>}
+  </BookContainer>)
 
 // LOAD MORE
 useEffect(() => {
@@ -59,7 +80,7 @@ useEffect(() => {
   } else {
     return (
       <SearchContainer>
-        {searchContext.items.map(book => <li key={book.id}>{book.volumeInfo.title}</li>)}
+        {searchContext.items.map(book => renderBook(book))}
         <LoadMoreWrapper>
           <LoadMoreBtn onClick={() => loadMore()}>load more</LoadMoreBtn>
         </LoadMoreWrapper>
