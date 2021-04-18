@@ -10,11 +10,9 @@ const {appDarkBlue, appPurple} = colors;
 const CarouselContainer = styled.div`
   font-size: 24px;
   height: 140px;
-  width: 376px;
+  width: 326px;
   display: flex;
-  width: 100%;
-  overflow-x: scroll;
-  overflow-y: hidden;
+  overflow: auto;
   ::-webkit-scrollbar {
   display: none;
   }

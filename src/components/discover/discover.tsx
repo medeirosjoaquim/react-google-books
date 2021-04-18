@@ -29,8 +29,6 @@ font-weight: bold;
 color: ${prop => prop.color};
 `
 
-
-
 function Discover() {
   return (
     <DiscoverContainer>

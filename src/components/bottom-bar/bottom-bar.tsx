@@ -1,17 +1,17 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import { colors } from '../../assets/colors';
 
 const home = require('../../assets/images/home.svg') as string;
 const libraries = require('../../assets/images/book.svg') as string;
 const profile = require('../../assets/images/profile.svg') as string;
 
-
 const BottomBarTag = styled.div`
-  padding: 4px;
   margin-left: 20px;
-  margin-top: 4px;
+  margin-top: 8px;
   height: 40px;
+  background-color: ${colors.appCream};
   display: flex;
   justify-content: space-around;
   align-items: center;
