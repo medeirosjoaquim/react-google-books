@@ -11,6 +11,7 @@ const BottomBarTag = styled.div`
 position: fixed;
   margin-left: 20px;
   bottom: 0;
+  padding-bottom: 4px;
   margin-top: 8px;
   height: 40px;
   background-color: ${colors.appCream};

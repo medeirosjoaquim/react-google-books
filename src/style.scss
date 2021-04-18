@@ -33,7 +33,7 @@ a, a:visited {
 
 .pages {
   display: flex;
-  overflow: hidden;
+  overflow: scroll;
   width: 100%;
 }
 
@@ -56,6 +56,11 @@ a, a:visited {
     background-color: $appDark;
     border-radius: 20px;
     border: 3px solid $appCream;
+  }  
+}
+
+@keyframes elastic {
+  to {
+    transform: scaleY(2);
   }
-  
 }

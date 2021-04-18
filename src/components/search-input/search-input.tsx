@@ -1,10 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { useHistory } from 'react-router';
-import magnifier from '../../assets/images/magnifier.png'
-import { SearchContext } from '../../context/search-context';
-import { SearchInputContainer, StyledInput, Icon } from './search-input-components/components';
+import axios from 'axios';
 
-// https://www.googleapis.com/books/v1/volumes?q=${query}
+import magnifier from '../../assets/images/magnifier.png'
+import { SearchContext, SearchStatusContext } from '../../context/search-context';
+import { SearchInputContainer, StyledInput, Icon } from './search-input-components/components';
+import { Books } from '../../models/books.model';
+import { buildQuery } from '../../helpers/query.helper';
+
+
 
 export const debounce = (fn: any, milis: number) => {
   let timeoutID: NodeJS.Timeout;
@@ -20,27 +24,41 @@ export const debounce = (fn: any, milis: number) => {
 
 
 function SearchInput() {
-  const [searchValue, setSearchValue] = useState('')
-  const debounceConsole = debounce(setSearchValue, 500)
+  //const [searchValue, setSearchValue] = useState('')
+  const [searchStatusContext, setSearchStatusContext] = useContext(SearchStatusContext);
+  const debounceConsole = debounce(setSearchStatusContext, 1000)
   const history = useHistory();
   const [searchContext, setSearchContext] = useContext(SearchContext);
+  //const [searchResults, setSearchResults] = useState<Books>(searchContext);
 
   useEffect(() => {
-   if (searchValue.length === 0) {
+   if (searchStatusContext.searchQuery.length < 3) {
     history.push('/')
+   } else {
+    history.push('search')
+    setSearchStatusContext({...searchStatusContext, fetchStatus: 'loading', startIndex: 0})
+    axios
+    .get<Books>(buildQuery( searchStatusContext.searchQuery, 0))
+    .then(response => {
+      setSearchStatusContext({...searchStatusContext, fetchStatus: 'loaded'})
+      setSearchContext(response.data)
+      // for change startIndex ;;; setSearchContext({...searchContext,...response.data})
+    })
+    .catch(() => {
+      //
+    });
    }
     return () => {
     }
-  }, [searchContext, searchValue])
+  }, [searchStatusContext.searchQuery])
 
 
   
   
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {         
     if(e.target.value.length >= 3) {
-      history.push('search')
     }
-    debounceConsole(e.target.value)
+    debounceConsole({...searchStatusContext, searchQuery: e.target.value})
   }
   
 
