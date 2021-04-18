@@ -3,7 +3,7 @@ import { useHistory } from 'react-router';
 import axios from 'axios';
 
 import magnifier from '../../assets/images/magnifier.png'
-import { SearchContext, SearchStatusContext } from '../../context/search-context';
+import { SearchContext, SearchResultInitialState, SearchStatusContext } from '../../context/search-context';
 import { SearchInputContainer, StyledInput, Icon } from './search-input-components/components';
 import { Books } from '../../models/books.model';
 import { buildQuery } from '../../helpers/query.helper';
@@ -36,16 +36,17 @@ function SearchInput() {
     history.push('/')
    } else {
     history.push('search')
-    setSearchStatusContext({...searchStatusContext, fetchStatus: 'loading', startIndex: 0})
+    setSearchContext(SearchResultInitialState)
+    setSearchStatusContext({...searchStatusContext, loadMore: false,
+      fetchStatus: 'loading', startIndex: 0})
     axios
     .get<Books>(buildQuery( searchStatusContext.searchQuery, 0))
     .then(response => {
       setSearchStatusContext({...searchStatusContext, fetchStatus: 'loaded'})
       setSearchContext(response.data)
-      // for change startIndex ;;; setSearchContext({...searchContext,...response.data})
     })
     .catch(() => {
-      //
+      setSearchStatusContext({...searchStatusContext, fetchStatus: 'error'})
     });
    }
     return () => {

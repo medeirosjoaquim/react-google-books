@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import BottomBar from './components/bottom-bar';
 import SearchInput from './components/search-input/search-input';
-import { SearchContext, SearchStatusContext, ISearchStatusState } from './context/search-context';
+import { SearchContext, SearchStatusContext, ISearchStatusState, SearchResultInitialState } from './context/search-context';
 import Detail from './pages/detail';
 import Error from './pages/error';
 import Home from './pages/home'
@@ -13,11 +13,11 @@ import './style.scss'
 
 export default function App() {
   const [searchContext, setSearchContext] = useState(
-    { kind: '', totalItems: 0, items: [] }
+    SearchResultInitialState
   );
 
   const [searchStatusContext, setSearchStatusContext] = useState<ISearchStatusState>(
-    {fetchStatus: 'none', startIndex: 0, searchQuery: ''}
+    {fetchStatus: 'none', startIndex: 0, searchQuery: '', loadMore: false}
   );
 
   return (

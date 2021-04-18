@@ -5,16 +5,20 @@ export type FetchStatus = 'loading' | 'loaded' | 'error' | 'none'
 export interface ISearchStatusState {
   fetchStatus: FetchStatus;
   searchQuery: string;
-  startIndex: number
+  startIndex: number;
+  loadMore: boolean;
 }
+
+export const SearchResultInitialState: Books
+  = {kind: '', totalItems: 0, items: []}
 
 type SearchStatusState = [ISearchStatusState, (value: ISearchStatusState) => void];
 type SearchState = [Books, (value: Books) => void];
 
 export const SearchContext = React.createContext<SearchState>(
-  [{kind: '', totalItems: 0, items: []}, (value: Books) => {} ]
+  [SearchResultInitialState, (value: Books) => {} ]
 );
 
 export const SearchStatusContext = React.createContext<SearchStatusState>(
-  [{fetchStatus: 'none', startIndex: 0, searchQuery: ''}, (value: ISearchStatusState) => {} ]
+  [{fetchStatus: 'none', startIndex: 0, searchQuery: '', loadMore: false}, (value: ISearchStatusState) => {} ]
 );

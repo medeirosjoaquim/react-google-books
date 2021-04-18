@@ -6,28 +6,9 @@ import Loader from '../../components/discover/card/components/loader';
 import { SearchContext, SearchStatusContext } from '../../context/search-context';
 import { buildQuery } from '../../helpers/query.helper';
 import { Books } from '../../models/books.model';
+import { LoadingResults, Label, SearchContainer, LoadMoreBtn, LoadMoreWrapper } from './components/search-results-components';
 
-const SearchContainer = styled.div`
-  padding: 20px;
-  width: 100%;
-  overflow-y: scroll; 
-  height:580x;
-  margin-left: 20px;
-  margin-top: 20px;
-`
 
-const LoadingResults = styled.div`
-  padding: 20px;
-  width: 100%;
-  height:580x;
-  margin-left: 20px;
-  margin-top: 20px;
-`
-
-const Label = styled.div`
-height: 200px;
-text-align: center;
-`
 
 function Search() {
   const [searchContext, setSearchContext] = useContext(SearchContext);
@@ -35,12 +16,15 @@ function Search() {
   const history = useHistory();
 
 const loadMore = () => {
-  const nextIndex = searchStatusContext.startIndex + 11;
-  setSearchStatusContext({...searchStatusContext, startIndex: nextIndex})
+  const nextIndex = searchStatusContext.startIndex + 5;
+  setSearchStatusContext({...searchStatusContext, loadMore: true,startIndex: nextIndex})
 }
 
 // LOAD MORE
 useEffect(() => {
+  if (!searchStatusContext.loadMore) {
+    return;
+  }
   setSearchStatusContext({...searchStatusContext, fetchStatus: 'loading'})
   axios
     .get<Books>(buildQuery( searchStatusContext.searchQuery, searchStatusContext.startIndex))
@@ -48,10 +32,9 @@ useEffect(() => {
       setSearchStatusContext({...searchStatusContext, fetchStatus: 'loaded'})
       const concatItems = Array.from(new Set([...searchContext.items, ...response.data.items]))
       setSearchContext({...response.data, items: concatItems})
-      // for change startIndex ;;; setSearchContext({...searchContext,...response.data})
     })
     .catch(() => {
-      // if error , set status error
+      setSearchStatusContext({...searchStatusContext, fetchStatus: 'error'})
     });
 
 
@@ -74,11 +57,12 @@ useEffect(() => {
       </SearchContainer>
     )    
   } else {
-    console.log(searchContext.items)
     return (
       <SearchContainer>
         {searchContext.items.map(book => <li key={book.id}>{book.volumeInfo.title}</li>)}
-        <button onClick={() => loadMore()}>load more</button>
+        <LoadMoreWrapper>
+          <LoadMoreBtn onClick={() => loadMore()}>load more</LoadMoreBtn>
+        </LoadMoreWrapper>
       </SearchContainer>
     )    
   }
