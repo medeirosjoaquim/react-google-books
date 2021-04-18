@@ -2,7 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
-@import "./assets/styles/breakpoints.scss";
 @import "./assets/styles/colors.scss";
 
 @font-face {
@@ -11,9 +10,8 @@
   src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
 }
 
-body,html {
+body,html,root {
   box-sizing: border-box;
-  overflow: hidden;
   font-family: 'San Francisco', Arial, sans-serif;
   background-color: $appCream;
   color: $appDark;
@@ -24,10 +22,30 @@ a, a:visited {
 }
 .wrapper {
   margin-top: 50px;
+  height: 100%;
+  overflow-y: scroll;
 }
 
-@include breakpoint(tablet) {
+
+
+@media (min-width: 376px) {
   body,html {
     width: 376px;
+    overflow-x: hidden;
   }
+
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  *::-webkit-scrollbar-track {
+    background: $appCream;
+  }
+  
+  *::-webkit-scrollbar-thumb {
+    background-color: $appDark;
+    border-radius: 20px;
+    border: 3px solid $appCream;
+  }
+  
 }

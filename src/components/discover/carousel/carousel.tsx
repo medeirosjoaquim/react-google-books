@@ -14,6 +14,12 @@ const CarouselContainer = styled.div`
   display: flex;
   width: 100%;
   overflow-x: scroll;
+  overflow-y: hidden;
+  ::-webkit-scrollbar {
+  display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 `;
 
 function Carousel() {

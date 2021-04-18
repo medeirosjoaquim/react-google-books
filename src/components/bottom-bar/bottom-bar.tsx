@@ -8,14 +8,16 @@ const profile = require('../../assets/images/profile.svg') as string;
 
 
 const BottomBarTag = styled.div`
-  position: absolute;
-  padding: 8px;
-  left: 20px;
-  right: 20px;
+  padding: 4px;
+  margin-left: 20px;
+  margin-top: 4px;
   height: 40px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  @media (min-width: 376px) {
+    width: 320px;
+  }
 `;
 const Label = styled.span`
   display: block;

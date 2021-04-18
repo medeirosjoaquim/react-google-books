@@ -7,6 +7,7 @@ import reviewbanner from '../../assets/images/review-banner.png'
 const ReviewContainer = styled.div`
   margin-top: 3px;
   margin-left: 20px;
+  margin-right: 20px;
   font-size: 24px;
   height: 180px;
   display: flex;
