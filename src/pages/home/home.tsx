@@ -3,6 +3,7 @@ import CurrentlyReading from '../../components/currently-reading'
 import Discover from '../../components/discover'
 import Greetings from '../../components/greetings'
 import Review from '../../components/reviews'
+import {mockedOriginalsData} from "../../helpers/mock.helper";
 
 function Home() {
   return (
@@ -12,7 +13,9 @@ function Home() {
       <CurrentlyReading title={'Originals'}
        author={'Adam Grant'}
        currentChapter={'2'}
-       totalChapers={'9'}/>
+       totalChapers={'9'}
+       detail={mockedOriginalsData}/>
+
        <Review/>
     </div>
   )

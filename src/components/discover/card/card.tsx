@@ -12,6 +12,8 @@ import { CardBookAuthor,
    CardReadNow, 
    CardRedBar, 
    CardTriangle } from './components/card-components';
+import { Item } from '../../../models/books.model';
+import { useHistory } from 'react-router';
 
 export interface ICard {
   bgColor: string;
@@ -19,6 +21,7 @@ export interface ICard {
   bookTitle: string;
   author: string;
   reads: string;
+  detail: {};
 }
 
 function Card({
@@ -26,10 +29,17 @@ function Card({
   imgSrc = '',
   bookTitle = '',
   author = 'test',
-  reads = ''
+  reads = '',
+  detail
+
  }: ICard) {
+   const history = useHistory()
   return (
-    <CardContainer bgColor={bgColor}>
+    <CardContainer bgColor={bgColor} 
+      onClick={() => history.push({
+        pathname: '/detail',
+        state:  detail
+      })}>
       <CardImg 
       src={imgSrc} alt={`Cover for book titled ${bookTitle}`}/>
       <CardRedBar/>

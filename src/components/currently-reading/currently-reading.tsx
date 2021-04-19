@@ -19,12 +19,14 @@ import { CurrentlyReadingContainer,
   Circle,
   BookWithMarker,
   Chapters} from './components/currently-reading-components';
+import {useHistory} from "react-router";
 
 export interface ICurrentlyReading {
   title: string;
   author: string;
   totalChapers: string;
   currentChapter: string;
+  detail: {}
 }
 
 
@@ -32,8 +34,10 @@ function CurrentlyReading({
   title = '',
   author = '',
   totalChapers = '',
-  currentChapter = ''
-}) {
+  currentChapter = '',
+  detail
+}: ICurrentlyReading) {
+   const history = useHistory();
   return (
     <CurrentlyReadingContainer>
       <LabelWrapper>
@@ -45,7 +49,12 @@ function CurrentlyReading({
         <RedBar/>
         <Circle/>
       </Banner>
-      <CurrentlyReadingBookCover src={mockbook}/>
+      <CurrentlyReadingBookCover
+          onClick={() => history.push({
+              pathname: '/detail',
+              state:  detail
+          })}
+          src={mockbook}/>
       <Title>{title}</Title>
       <Author>by{' '}{author}</Author>
       <Chapters>

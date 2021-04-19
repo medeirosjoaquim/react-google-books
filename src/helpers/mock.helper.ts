@@ -76,8 +76,7 @@ export const mockedHookData = {
   }
 }
 
-const mockTheOneThingData = {
-  "book": {
+export const mockTheOneThingData = {
       "kind": "books#volume",
       "id": "rB2ZDQAAQBAJ",
       "etag": "q38dkMLvlts",
@@ -155,11 +154,9 @@ const mockTheOneThingData = {
       "searchInfo": {
           "textSnippet": "In The ONE Thing, you&#39;ll learn to * cut through the clutter * achieve better results in less time * build momentum toward your goal* dial down the stress * overcome that overwhelmed feeling * revive your energy * stay on track * master what ..."
       }
-  }
 }
 
 export const mockedOriginalsData = {
-  "book": {
       "kind": "books#volume",
       "id": "rISmCgAAQBAJ",
       "etag": "8KSUUE7m0rU",
@@ -258,7 +255,6 @@ export const mockedOriginalsData = {
       "searchInfo": {
           "textSnippet": "Originals will give you groundbreaking insights about rejecting conformity and how to change the world."
       }
-  }
 }
 
 export const mockedDontMakeMeThinkData = {

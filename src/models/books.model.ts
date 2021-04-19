@@ -5,7 +5,7 @@ export interface Books {
 }
 
 export interface Item {
-  kind:       Kind;
+  kind:       string;
   id:         string;
   etag:       string;
   selfLink:   string;

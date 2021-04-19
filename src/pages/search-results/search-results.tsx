@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useContext, useEffect } from 'react'
 import { useHistory } from 'react-router';
 import { Item } from '../../models/books.model'
-import styled from 'styled-components';
+
 import Loader from '../../components/discover/card/components/loader';
 import { SearchContext, SearchStatusContext } from '../../context/search-context';
 import { buildQuery } from '../../helpers/query.helper';
