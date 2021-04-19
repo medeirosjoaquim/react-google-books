@@ -25,7 +25,7 @@ function Search() {
   (<BookContainer key={book.id}
     onClick={() => history.push({
       pathname: '/detail',
-      state: { book }
+      state:  book 
     })}
 
   >
@@ -35,9 +35,9 @@ function Search() {
     }
 
     <BookTitle>
-      {book.volumeInfo.title.length > 28 ?
-        book.volumeInfo.title.substring(0, 27) + '...'
-        : book.volumeInfo.title}
+      {book.volumeInfo?.title?.length > 28 ?
+        book.volumeInfo?.title.substring(0, 27) + '...'
+        : book.volumeInfo?.title}
     </BookTitle>
     {book.volumeInfo.authors &&
       <BookAuthor>by {''}
@@ -55,7 +55,9 @@ function Search() {
     axios
       .get<Books>(buildQuery(searchStatusContext.searchQuery, searchStatusContext.startIndex))
       .then(response => {
-        setSearchStatusContext({ ...searchStatusContext, fetchStatus: 'loaded' })
+        setSearchStatusContext({ ...searchStatusContext,
+           fetchStatus: 'loaded',
+          loadMore: false })
         const concatItems = Array.from(new Set([...searchContext.items, ...response.data.items]))
         setSearchContext({ ...response.data, items: concatItems })
       })
@@ -83,9 +85,10 @@ function Search() {
       </SearchContainer>
     )
   } else {
+    const items = searchContext.items.filter(item => item.volumeInfo.hasOwnProperty('title'));
     return (
       <SearchContainer>
-        {searchContext.items.map(book => renderBook(book))}
+        {items.map(book => renderBook(book))}
         <LoadMoreWrapper>
           <LoadMoreBtn onClick={() => loadMore()}>load more</LoadMoreBtn>
         </LoadMoreWrapper>

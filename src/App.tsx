@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, useLocation } from 'react-router-dom';
 
 import BottomBar from './components/bottom-bar';
 import SearchInput from './components/search-input/search-input';
@@ -19,13 +19,13 @@ export default function App() {
   const [searchStatusContext, setSearchStatusContext] = useState<ISearchStatusState>(
     {fetchStatus: 'none', startIndex: 0, searchQuery: '', loadMore: false}
   );
-
+  const {pathname} = useLocation();
   return (
     <SearchStatusContext.Provider 
       value={[searchStatusContext, setSearchStatusContext]}>
       <SearchContext.Provider value={[searchContext, setSearchContext]}>
         <div className="wrapper">
-          <SearchInput />
+          {(pathname !== '/detail') && <SearchInput />}
           <div className="pages">
             <Switch>
               <Route path="/" component={Home} exact />

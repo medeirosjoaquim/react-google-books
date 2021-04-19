@@ -6,7 +6,7 @@ function BackButton() {
   const history = useHistory();
   return (
     <div onClick={()=> history.goBack()}>
-      <img width={14} src={leftArrow} alt="Go back" />
+      <img width={24} height={24} src={leftArrow} alt="Go back" />
     </div>
   )
 }
