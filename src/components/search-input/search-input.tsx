@@ -8,7 +8,9 @@ import { SearchInputContainer, StyledInput, Icon } from './search-input-componen
 import { Books } from '../../models/books.model';
 import { buildQuery } from '../../helpers/query.helper';
 
-
+export interface ISearchInput {
+  show: boolean;
+}
 
 export const debounce = (fn: any, milis: number) => {
   let timeoutID: NodeJS.Timeout;
@@ -23,7 +25,7 @@ export const debounce = (fn: any, milis: number) => {
 };
 
 
-function SearchInput() {
+function SearchInput({show}: ISearchInput) {
   //const [searchValue, setSearchValue] = useState('')
   const [searchStatusContext, setSearchStatusContext] = useContext(SearchStatusContext);
   const debounceConsole = debounce(setSearchStatusContext, 1000)
@@ -64,7 +66,7 @@ function SearchInput() {
   
 
   return (
-    <SearchInputContainer>
+    <SearchInputContainer style={{display: show ? 'flex' : 'none'}}>
       <StyledInput placeholder={'Search book'}
       onChange={e => handleInputChange(e)}/>
       <Icon src={magnifier}/>  
