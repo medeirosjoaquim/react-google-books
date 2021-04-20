@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Route, Switch, useHistory, useLocation } from 'react-router-dom';
+import {Helmet} from "react-helmet";
 
 import BottomBar from './components/bottom-bar';
 import SearchInput from './components/search-input/search-input';
@@ -19,7 +20,6 @@ const [showSearchInput, setShowSearchInput] = useState(true)
   const [searchStatusContext, setSearchStatusContext] = useState<ISearchStatusState>(
     {fetchStatus: 'none', startIndex: 0, searchQuery: '', loadMore: false}
   );
-  const {pathname} = useLocation();
 const history = useHistory()
 useEffect(() => {
   history.listen((location, action) => {
@@ -38,6 +38,11 @@ useEffect(() => {
       value={[searchStatusContext, setSearchStatusContext]}>
       <SearchContext.Provider value={[searchContext, setSearchContext]}>
         <div className="wrapper">
+        <Helmet>
+                <meta charSet="utf-8" />
+                <title>React Google Books</title>
+                <link rel="canonical" href="" />
+            </Helmet>
           <SearchInput show={showSearchInput}/>
           <div className="pages">
             <Switch>
