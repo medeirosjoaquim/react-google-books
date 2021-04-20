@@ -68,6 +68,7 @@ function SearchInput({show}: ISearchInput) {
   return (
     <SearchInputContainer style={{display: show ? 'flex' : 'none'}}>
       <StyledInput placeholder={'Search book'}
+      aria-label="search-input"
       onChange={e => handleInputChange(e)}/>
       <Icon src={magnifier}/>  
     </SearchInputContainer>

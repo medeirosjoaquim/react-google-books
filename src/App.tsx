@@ -16,7 +16,7 @@ export default function App() {
   const [searchContext, setSearchContext] = useState(
     SearchResultInitialState
   );
-const [showSearchInput, setShowSearchInput] = useState(true)
+const [show, setShow] = useState(true)
   const [searchStatusContext, setSearchStatusContext] = useState<ISearchStatusState>(
     {fetchStatus: 'none', startIndex: 0, searchQuery: '', loadMore: false}
   );
@@ -24,9 +24,9 @@ const history = useHistory()
 useEffect(() => {
   history.listen((location, action) => {
     if (location.pathname === '/detail') {
-      setShowSearchInput(false)
+      setShow(false)
     } else {
-      setShowSearchInput(true)
+      setShow(true)
     }
   });
   return () => {
@@ -43,7 +43,7 @@ useEffect(() => {
                 <title>React Google Books</title>
                 <link rel="canonical" href="" />
             </Helmet>
-          <SearchInput show={showSearchInput}/>
+          <SearchInput show={show}/>
           <div className="pages">
             <Switch>
               <Route path="/" component={Home} exact />
@@ -52,7 +52,7 @@ useEffect(() => {
               <Route path="/error" component={Error} />
             </Switch>
           </div>
-          <BottomBar />
+          <BottomBar show={show}/>
         </div>
       </SearchContext.Provider>
     </SearchStatusContext.Provider>

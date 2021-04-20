@@ -87,7 +87,7 @@ function Search() {
   } else {
     const items = searchContext.items.filter(item => item.volumeInfo.hasOwnProperty('title'));
     return (
-      <SearchContainer>
+      <SearchContainer data-testid="search-results">
         {items.map(book => renderBook(book))}
         <LoadMoreWrapper>
           <LoadMoreBtn onClick={() => loadMore()}>load more</LoadMoreBtn>

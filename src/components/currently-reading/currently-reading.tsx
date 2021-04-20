@@ -39,7 +39,7 @@ function CurrentlyReading({
 }: ICurrentlyReading) {
    const history = useHistory();
   return (
-    <CurrentlyReadingContainer>
+    <CurrentlyReadingContainer data-testid="currently-reading">
       <LabelWrapper>
         <Label color={appDark50}>Currently Reading</Label>
         <Label color={appLightBlue}>All</Label>

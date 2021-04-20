@@ -37,7 +37,7 @@ color: ${prop => prop.color};
 
 function Review() {
   return (
-    <ReviewContainer>
+    <ReviewContainer data-testid="review">
       <LabelWrapper>
         <Label color={appDark50}>Reviews of the day</Label>
         <Label color={appLightBlue}>All Videos</Label>

@@ -32,10 +32,12 @@ const BarItem = styled.div`
   display: flex;
   flex-direction: column;
 `
-
-function BottomBar() {
+export interface IBottomBar {
+    show: boolean;
+}
+function BottomBar({show}: IBottomBar) {
   return (
-    <div>
+    <div style={{ display: show ?  'block' :  'none'}}>
       <BottomBarTag>
       <Link to='/'>
       <BarItem>

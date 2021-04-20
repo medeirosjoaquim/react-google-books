@@ -7,15 +7,15 @@ import {mockedOriginalsData} from "../../helpers/mock.helper";
 
 function Home() {
   return (
-    <div className="home">
+    <div className="home" data-testid="home">
       <Greetings userName={'Mehmed Al Fatih'}/>
       <Discover/>
-      <CurrentlyReading title={'Originals'}
+      <CurrentlyReading
+       title={'Originals'}
        author={'Adam Grant'}
        currentChapter={'2'}
        totalChapers={'9'}
        detail={mockedOriginalsData}/>
-
        <Review/>
     </div>
   )

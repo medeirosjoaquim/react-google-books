@@ -20,7 +20,7 @@ const GreetingsUserName = styled.span`
 
 function Greetings({userName = ''}: IGreetings) {
   return (
-    <GreetingsContainer>
+    <GreetingsContainer data-testid="greetings">
       <span>Hi,{' '}</span>
       <GreetingsUserName>{userName} </GreetingsUserName>
       <span>, 👋</span>

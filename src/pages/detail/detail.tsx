@@ -2,7 +2,9 @@ import React, {useState} from 'react'
 import {RouteComponentProps} from 'react-router'
 import BackButton from '../../components/back-button/back-button'
 import headerImg from '../../assets/images/detail-header.png'
+import detailBarImg from '../../assets/images/detail_bar.png'
 import {Item} from '../../models/books.model'
+
 import './detail.scss'
 import {
     DetailWrapper,
@@ -16,6 +18,7 @@ import {
     Title,
     SubTitle,
     Author,
+    DetailBar
 } from './components/detail-components'
 
 
@@ -53,7 +56,7 @@ console.log(description)
                 {!readMore && <button className="read-more-btn"
                                       onClick={() => setreadMore((true))}>Read More</button>}
             </DescriptionWrapper>}
-
+            <DetailBar src={detailBarImg}/>
         </DetailWrapper>
     )
 }

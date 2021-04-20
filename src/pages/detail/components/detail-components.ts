@@ -70,3 +70,9 @@ export const DescriptionWrapper = styled.div`
   padding-bottom: 42px;
   text-align: start;
 `
+export const DetailBar = styled.img`
+  position: fixed;
+  margin: 0 20px;
+  width: 337px;
+  height: 60px;
+`

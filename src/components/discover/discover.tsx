@@ -31,7 +31,7 @@ color: ${prop => prop.color};
 
 function Discover() {
   return (
-    <DiscoverContainer>
+    <DiscoverContainer data-testid="discover">
       <LabelWrapper>
         <Label color={appDark50}>Discover new book</Label>
         <Label color={appLightBlue}>More</Label>
