@@ -3,6 +3,7 @@ import {RouteComponentProps} from 'react-router'
 import BackButton from '../../components/back-button/back-button'
 import headerImg from '../../assets/images/detail-header.png'
 import {Item} from '../../models/books.model'
+import './detail.scss'
 import {
     DetailWrapper,
     HeaderWrapper,
@@ -11,31 +12,35 @@ import {
     BookCoverImg,
     NoCover,
     InfoWrapper,
+    DescriptionWrapper,
     Title,
     SubTitle,
-    Author
+    Author,
 } from './components/detail-components'
 
 
 function Detail({location}: RouteComponentProps<{}, {}, Item>) {
     const book = location.state;
-    const {title, subtitle, imageLinks, infoLink, authors} = book.volumeInfo;
+    const {title, subtitle, imageLinks, description, authors} = book.volumeInfo;
     const [imageLoaded, setImageLoaded] = useState(false)
+    const [readMore, setreadMore] = useState(false)
     const handleImageLoaded = () => {
         setImageLoaded(true);
     }
-
+console.log(description)
     return (
         <DetailWrapper>
             <HeaderWrapper>
                 <DetailHeaderImg src={headerImg}/>
+                {!imageLoaded && <NoCover></NoCover>}
+                {imageLinks.thumbnail
+                    ? <BookCoverImg src={imageLinks.thumbnail}
+                                    onLoad={() => handleImageLoaded()}/>
+                    : <NoCover></NoCover>}
+                <BackBtnWrapper><BackButton/></BackBtnWrapper>
             </HeaderWrapper>
-            <BackBtnWrapper><BackButton/></BackBtnWrapper>
-            {!imageLoaded && <NoCover></NoCover>}
-            {imageLinks.thumbnail
-                ? <BookCoverImg src={imageLinks.thumbnail}
-                                onLoad={() => handleImageLoaded()}/>
-                : <NoCover></NoCover>}
+
+
             <InfoWrapper>
                 <div className="">
                     {title && <Title>{title}</Title>}
@@ -43,6 +48,11 @@ function Detail({location}: RouteComponentProps<{}, {}, Item>) {
                 </div>
                 <Author>{authors}</Author>
             </InfoWrapper>
+            {description && <DescriptionWrapper className={readMore ? '' : 'description--container'}>{description}
+                <p className="read-more"></p>
+                {!readMore && <button className="read-more-btn"
+                                      onClick={() => setreadMore((true))}>Read More</button>}
+            </DescriptionWrapper>}
 
         </DetailWrapper>
     )

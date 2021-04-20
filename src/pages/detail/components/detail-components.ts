@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { colors } from "../../../assets/colors";
 
-const {appDark25, appPink, appCream, appLightBlue} = colors;
+const {appDark25, appPink, appCream, appDarkBlue} = colors;
 
 export const DetailWrapper = styled.div`
   height: 100%;
@@ -19,7 +19,7 @@ export const BookCoverImg = styled.img`
 export const NoCover = styled.div`
   position: absolute;
   background-color: ${appCream};
-  border: 1px solid ${appLightBlue};
+  border: 1px solid ${appDarkBlue};
   left: 112px;
   top: 84px;
   height: 230px;
@@ -51,16 +51,22 @@ export const BackBtnWrapper = styled.div`
 `
 export const HeaderWrapper = styled.div`
 position: relative;
+  height: 300px;
 margin-bottom: 40px;
 `
 
 export const DetailHeaderImg = styled.img`
-  position: relative;
+  position: absolute;
   top: -20px;
 `
 
-
 export const InfoWrapper = styled.div`
+  margin: 20px;
+  text-align: start;
+`
+
+export const DescriptionWrapper = styled.div`
   margin: 0 20px;
+  padding-bottom: 42px;
   text-align: start;
 `
