@@ -29,7 +29,7 @@ On root folder:
 
 The app will be running on [localhost](http://localhost/)
 
-### Unit Tests
+### Unit Tests 🧪
 
 The unit tests are setup with React Testing Library and run by jest.
 The tests produce an HTML file that can be found in the root folder
